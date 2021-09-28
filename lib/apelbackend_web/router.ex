@@ -22,8 +22,8 @@ defmodule ApelbackendWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api/v1", ApelbackendWeb do
     pipe_through :api
-
-    resources "/users", UserController, only: [:create, :show]
+    post "/sign_in", UserController, :sign_in
+    post "/sign_up", UserController, :create
   end
 
   # Enables LiveDashboard only for development

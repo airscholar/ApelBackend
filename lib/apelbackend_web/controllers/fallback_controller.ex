@@ -21,4 +21,10 @@ defmodule ApelbackendWeb.FallbackController do
     |> put_view(ApelbackendWeb.ErrorView)
     |> render(:"404")
   end
+
+  def call(conn, {:error, :unauthorized}) do
+    conn
+    |> put_status(:unauthorized)
+    |> json(%{error: "Login Error"})
+  end
 end
